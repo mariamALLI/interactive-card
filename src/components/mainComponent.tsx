@@ -193,7 +193,7 @@ export default function Main({
               <div className="checkmark">
                 <img
                   className="checkmark_circle"
-                  src="./src/assets/images/iconcomplete.svg"
+                  src="./src/assets/images/iconcomplete.jpg"
                   alt="Complete"
                 />
               </div>
