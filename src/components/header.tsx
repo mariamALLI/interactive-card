@@ -1,6 +1,7 @@
 import bgCardback from "../assets/images/bgcardback.png";
 import bgCardfront from "../assets/images/bgcardfront.png";
 import cardLogo from "../assets/images/cardlogo.svg";
+import { useHead } from "@unhead/react";
 
 interface HeaderProps {
   cardHolder: string;
@@ -17,6 +18,16 @@ export default function Header({
   cardYear,
   cardCvc,
 }: HeaderProps) {
+  // Set the document head using useHead from @unhead/react
+  useHead({
+    title: `Card for ${cardHolder || "Jane Appleseed"}`,
+    meta: [
+      {
+        name: "description",
+        content: "Interactive card component with dynamic styling.",
+      },
+    ],
+  });
   // Format card number with spaces and pad with zeros if empty
   const formatCardNumber = (number: string) => {
     if (!number) return "0000 0000 0000 0000";

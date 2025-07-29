@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/header";
 import Main from "./components/mainComponent";
+import { ErrorBoundary } from "react-error-boundary";
 
 function App() {
   const [cardHolder, setCardHolder] = useState("");
@@ -18,18 +19,21 @@ function App() {
         cardYear={cardYear}
         cardCvc={cardCvc}
       />
-      <Main
-        cardHolder={cardHolder}
-        setCardHolder={setCardHolder}
-        cardNumber={cardNumber}
-        setCardNumber={setCardNumber}
-        cardMonth={cardMonth}
-        setCardMonth={setCardMonth}
-        cardYear={cardYear}
-        setCardYear={setCardYear}
-        cardCvc={cardCvc}
-        setCardCvc={setCardCvc}
-      />
+      <ErrorBoundary fallback={<div>Something went wrong</div>}>
+        <Main
+          cardHolder={cardHolder}
+          setCardHolder={setCardHolder}
+          cardNumber={cardNumber}
+          setCardNumber={setCardNumber}
+          cardMonth={cardMonth}
+          setCardMonth={setCardMonth}
+          cardYear={cardYear}
+          setCardYear={setCardYear}
+          cardCvc={cardCvc}
+          setCardCvc={setCardCvc}
+        />
+    </ErrorBoundary>
+
     </>
   );
 }

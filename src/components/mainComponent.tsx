@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useHead } from "@unhead/react";
+import { useCallback } from "react";
 
 interface MainProps {
   cardHolder: string;
@@ -33,9 +35,10 @@ export default function Main({
     cvc: false,
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+ const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleReset = () => {
+// The handleReset uses the useCallback hook   
+  const handleReset = useCallback(() => {
     setIsSubmitted(false);
     setCardHolder("");
     setCardNumber("");
@@ -49,7 +52,7 @@ export default function Main({
       year: false,
       cvc: false,
     });
-  };
+  }, [setIsSubmitted, setCardHolder, setCardNumber, setCardMonth, setCardYear, setCardCvc, setError]);
 
   useEffect(() => {
     if (isSubmitted) {
@@ -59,7 +62,7 @@ export default function Main({
 
       return () => clearTimeout(timer);
     }
-  }, [isSubmitted]);
+  }, [isSubmitted, handleReset]);
 
   const handleCardHolderChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -77,7 +80,7 @@ export default function Main({
   const handleCardNumberChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    let value = event.target.value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+    const value = event.target.value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
 
     // Add spaces every 4 digits
     const formattedValue = value.match(/.{1,4}/g)?.join(" ") || value;
@@ -183,6 +186,20 @@ export default function Main({
       setIsSubmitted(true);
     }
   };
+
+  useHead({
+    title: isSubmitted
+      ? "Card Added Successfully"
+      : "Enter Your Card Details",
+    meta: [
+      {
+        name: "description",
+        content: isSubmitted
+          ? "Thank you for submitting your card details."
+          : "Fill out the form to add your card details.",
+      },
+    ],
+  });
 
   if (isSubmitted) {
     return (
