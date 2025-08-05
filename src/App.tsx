@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/header";
 import Main from "./components/mainComponent";
+import CardSkeleton from "./components/CardSkeleton";
+import FormSkeleton from "./components/FormSkeleton";
 import { ErrorBoundary } from "react-error-boundary";
 
 function App() {
@@ -9,6 +11,25 @@ function App() {
   const [cardMonth, setCardMonth] = useState("");
   const [cardYear, setCardYear] = useState("");
   const [cardCvc, setCardCvc] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate initial loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 seconds loading time
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <>
+        <CardSkeleton />
+        <FormSkeleton />
+      </>
+    );
+  }
 
   return (
     <>
@@ -32,8 +53,7 @@ function App() {
           cardCvc={cardCvc}
           setCardCvc={setCardCvc}
         />
-    </ErrorBoundary>
-
+      </ErrorBoundary>
     </>
   );
 }

@@ -1,161 +1,161 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #root {
-    display: block;
+  display: block;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.125rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 header {
-    background-image: url(./assets/images/bgmainmobile.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    flex-basis: 30%;
-    padding: 1rem 1.5rem;
-    color: hsl(0, 0%, 100%);
-    position: relative;
+  background-image: url(./assets/images/bgmainmobile.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-basis: 30%;
+  padding: 1rem 1.5rem;
+  color: hsl(0, 0%, 100%);
+  position: relative;
 }
 
 .container {
-    width: 95%;
-    max-width: 1200px;
-    padding: 2rem 1.5rem;
-    margin: 0 auto;
+  width: 95%;
+  max-width: 1200px;
+  padding: 2rem 1.5rem;
+  margin: 0 auto;
 }
 
 .form {
-    margin: auto;
-    margin-top: 4rem;
-    color: hsl(278, 68%, 11%);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
+  margin: auto;
+  margin-top: 4rem;
+  color: hsl(278, 68%, 11%);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
 }
 
 .back-card,
 .front-card {
-    width: 78vw;
-    position: relative;
+  width: 78vw;
+  position: relative;
 }
 
 .front-card {
-    position: absolute;
-    top: 8.2rem;
-    left: 1rem;
-    height: 26vh;
-    filter: drop-shadow(0px 8px 5px #666666);
+  position: absolute;
+  top: 8.2rem;
+  left: 1rem;
+  height: 26vh;
+  filter: drop-shadow(0px 8px 5px #666666);
 }
 
 #back-card-digit {
-    position: absolute;
-    right: 4rem;
-    top: 7rem;
-    font-size: 0.65rem;
+  position: absolute;
+  right: 4rem;
+  top: 7rem;
+  font-size: 0.65rem;
 }
 
 .card-logo {
-    position: absolute;
-    top: 9rem;
-    width: 23%;
-    left: 2.5rem;
+  position: absolute;
+  top: 9rem;
+  width: 23%;
+  left: 2.5rem;
 }
 
 #front-card-digit {
-    position: absolute;
-    top: 13rem;
-    left: 3rem;
-    font-size: 1.1em;
+  position: absolute;
+  top: 13rem;
+  left: 3rem;
+  font-size: 1.1em;
 }
 
 .card-name-and-month {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 15.5rem;
-    left: 2.8rem;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 15.5rem;
+  left: 2.8rem;
 }
 
 .form-name,
 .form-number {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-name,
 .form-number,
 .form-month {
-    margin-top: 1.3rem;
+  margin-top: 1.3rem;
 }
 
 .form-month {
-    display: grid;
+  display: grid;
 }
 
 .flex-row {
-    display: grid;
-    grid-template-columns: 80px 80px minmax(50px, 1fr);
+  display: grid;
+  grid-template-columns: 80px 80px minmax(50px, 1fr);
 }
 
 #card_name,
 #month {
-    font-size: 0.7rem;
-    text-transform: uppercase;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
 #month {
-    left: 11.5rem;
-    position: absolute;
-    display: flex;
+  left: 11.5rem;
+  position: absolute;
+  display: flex;
 }
 
 #cardmonth {
-    margin-left: -0.6rem;
+  margin-left: -0.6rem;
 }
 
 #cardmonthyear {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 #cardmonthcvc {
-    margin-left: 0.7rem;
+  margin-left: 0.7rem;
 }
 
 .cvc {
-    margin-left: 3rem;
+  margin-left: 3rem;
 }
 
 .form_card input {
-    width: 100%;
-    color: hsl(279, 6%, 55%);
-    margin-top: 1em;
-    padding: 1em 0;
-    border: 2px solid hsl(270, 3%, 87%);
-    border-radius: 6px;
-    outline: none;
-    padding-left: 1.2em;
+  width: 100%;
+  color: hsl(279, 6%, 55%);
+  margin-top: 1em;
+  padding: 1em 0;
+  border: 2px solid hsl(270, 3%, 87%);
+  border-radius: 6px;
+  outline: none;
+  padding-left: 1.2em;
 }
 
 .form_card input[type="text"]:focus {
-    border: 1px solid hsl(278, 94%, 30%);
-    padding-left: 1.2rem;
+  border: 1px solid hsl(278, 94%, 30%);
+  padding-left: 1.2rem;
 }
 
 #cardcvc {
-    width: 100%;
-    margin-left: 10px;
+  width: 100%;
+  margin-left: 10px;
 }
 
 #error1,
@@ -163,243 +163,243 @@ header {
 #error3,
 #error4,
 #error5 {
-    text-transform: none;
-    font-size: 0.6rem;
-    color: hsl(0, 100%, 66%);
-    display: none;
+  text-transform: none;
+  font-size: 0.6rem;
+  color: hsl(0, 100%, 66%);
+  display: none;
 }
 
 button {
-    padding: 1em;
-    color: #fff;
-    border-radius: 6px;
-    border: none;
-    font-family: inherit;
-    width: 100%;
-    font-size: 1.2rem;
-    cursor: pointer;
+  padding: 1em;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  font-family: inherit;
+  width: 100%;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .btn,
 #continue {
-    background-color: hsl(278, 68%, 11%);
-    margin-top: 2rem;
+  background-color: hsl(278, 68%, 11%);
+  margin-top: 2rem;
 }
 
 .btn:hover,
 #continue:hover {
-    background-color: hsl(278, 94%, 30%);
+  background-color: hsl(278, 94%, 30%);
 }
 
 .completed-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .thank-card {
-    text-align: center;
-    max-width: 600px;
-    width: 100%;
-    margin-bottom: 9rem;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 9rem;
 }
 
 .checkmark_circle {
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 64px;
-    width: 64px;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 64px;
+  width: 64px;
 }
 
 .thank-h1 {
-    font-size: 28px;
-    margin-bottom: 16px;
-    color: hsl(278, 68%, 11%);
-    font-weight: 400;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: hsl(278, 68%, 11%);
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .thank-p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: hsl(279, 6%, 55%);
-    line-height: 1.5;
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: hsl(279, 6%, 55%);
+  line-height: 1.5;
 }
 
 .thank-msg {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    font-weight: 400;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 400;
 }
 
 .complete-btn {
-    padding: 16px 0;
-    width: 100%;
-    background-color: hsl(278, 68%, 11%);
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 1px;
+  padding: 16px 0;
+  width: 100%;
+  background-color: hsl(278, 68%, 11%);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
 }
 
 @media (min-width: 425px) {
-    #back-card-digit {
-        top: 10.5rem;
-        left: 39rem;
-    }
+  #back-card-digit {
+    top: 10.5rem;
+    left: 39rem;
+  }
 
-    #front-card-digit {
-        top: 15rem;
-    }
+  #front-card-digit {
+    top: 15rem;
+  }
 
-    .back-card {
-        top: -0.5rem;
-        left: 4rem;
-    }
+  .back-card {
+    top: -0.5rem;
+    left: 4rem;
+  }
 
-    .front-card {
-        height: auto;
-    }
+  .front-card {
+    height: auto;
+  }
 
-    .card-name-and-month {
-        top: 23rem;
-    }
+  .card-name-and-month {
+    top: 23rem;
+  }
 
-    #month {
-        left: 28rem;
-    }
+  #month {
+    left: 28rem;
+  }
 
-    .card-logo {
-        width: 18%;
-    }
+  .card-logo {
+    width: 18%;
+  }
 
-    #front-card-digit {
-        font-size: 1.3em;
-    }
+  #front-card-digit {
+    font-size: 1.3em;
+  }
 
-    #card_name,
-    #month,
-    #back-card-digit {
-        font-size: 1.5rem;
-    }
+  #card_name,
+  #month,
+  #back-card-digit {
+    font-size: 1.5rem;
+  }
 
-    .checkmark_circle {
-        position: relative;
-        top: 50%;
-        left: 5%;
-        right: 30%;
-        margin-left: 10rem;
-        margin-right: 10rem;
-    }
+  .checkmark_circle {
+    position: relative;
+    top: 50%;
+    left: 5%;
+    right: 30%;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
 
-    .thank-card {
-        position: relative;
-        left: 50%;
-    }
+  .thank-card {
+    position: relative;
+    left: 50%;
+  }
 }
 
 @media (min-width: 800px) {
-    #root {
-        display: flex;
-    }
+  #root {
+    display: flex;
+  }
 
-    body {
-        display: flex;
-        flex-direction: row;
-    }
+  body {
+    display: flex;
+    flex-direction: row;
+  }
 
-    header {
-        background-image: url(./assets/images/bgmaindesktop.png);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        width: 60vw;
-        height: 100vh;
-    }
+  header {
+    background-image: url(./assets/images/bgmaindesktop.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60vw;
+    height: 100vh;
+  }
 
-    .form {
-        margin: 0 auto;
-        max-width: 400px;
-        margin-top: 12rem;
-        margin-left: 20rem;
-    }
+  .form {
+    margin: 0 auto;
+    max-width: 400px;
+    margin-top: 12rem;
+    margin-left: 20rem;
+  }
 
-    .back-card,
-    .front-card {
-        width: 100%;
-    }
+  .back-card,
+  .front-card {
+    width: 100%;
+  }
 
-    .back-card {
-        position: absolute;
-        top: 27rem;
-        left: 19rem;
-    }
+  .back-card {
+    position: absolute;
+    top: 27rem;
+    left: 19rem;
+  }
 
-    #back-card-digit {
-        top: 32rem;
-        left: 37rem;
-        font-size: 0.85em;
-    }
+  #back-card-digit {
+    top: 32rem;
+    left: 37rem;
+    font-size: 0.85em;
+  }
 
-    .front-card {
-        left: 13rem;
-        top: 11rem;
-        filter: none;
-    }
+  .front-card {
+    left: 13rem;
+    top: 11rem;
+    filter: none;
+  }
 
-    .card-logo {
-        top: 12rem;
-        left: 14rem;
-    }
+  .card-logo {
+    top: 12rem;
+    left: 14rem;
+  }
 
-    #front-card-digit {
-        position: relative;
-        left: 13rem;
-        top: 13rem;
-        font-size: 1.3rem;
-    }
+  #front-card-digit {
+    position: relative;
+    left: 13rem;
+    top: 13rem;
+    font-size: 1.3rem;
+  }
 
-    .card-name-and-month {
-        top: 21rem;
-        left: 15rem;
-    }
+  .card-name-and-month {
+    top: 21rem;
+    left: 15rem;
+  }
 
-    #card_name,
-    #month {
-        font-size: 0.8rem;
-    }
+  #card_name,
+  #month {
+    font-size: 0.8rem;
+  }
 
-    #month {
-        left: 17rem;
-    }
+  #month {
+    left: 17rem;
+  }
 
-    button {
-        max-width: 450px;
-    }
+  button {
+    max-width: 450px;
+  }
 
-    .thank-card {
-        margin-right: -50%;
-        margin-left: 50%;
-    }
+  .thank-card {
+    margin-right: -50%;
+    margin-left: 50%;
+  }
 
-    #front-card {
-        position: absolute;
-        top: 11rem;
-        width: 26vw;
-    }
+  #front-card {
+    position: absolute;
+    top: 11rem;
+    width: 26vw;
+  }
 
-    #back-card {
-        left: 18rem;
-        width: 26vw;
-    }
+  #back-card {
+    left: 18rem;
+    width: 26vw;
+  }
 }

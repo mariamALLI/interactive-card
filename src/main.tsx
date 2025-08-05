@@ -4,6 +4,7 @@ import { createHead , UnheadProvider} from "@unhead/react/client";
 import "./index.css";
 import App from "./App.tsx";
 import "normalize.css";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const head = createHead();
 

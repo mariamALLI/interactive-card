@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useHead } from "@unhead/react";
 import { useCallback } from "react";
+import { ButtonSkeleton } from "./SkeletonComponents";
 
 interface MainProps {
   cardHolder: string;
@@ -35,9 +36,10 @@ export default function Main({
     cvc: false,
   });
 
- const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-// The handleReset uses the useCallback hook   
+  // The handleReset uses the useCallback hook
   const handleReset = useCallback(() => {
     setIsSubmitted(false);
     setCardHolder("");
@@ -52,8 +54,18 @@ export default function Main({
       year: false,
       cvc: false,
     });
-  }, [setIsSubmitted, setCardHolder, setCardNumber, setCardMonth, setCardYear, setCardCvc, setError]);
+  }, [
+    setIsSubmitted,
+    setCardHolder,
+    setCardNumber,
+    setCardMonth,
+    setCardYear,
+    setCardCvc,
+    setError,
+  ]);
 
+  // Automatically reset the form after submission
+  // This effect runs when isSubmitted changes to true
   useEffect(() => {
     if (isSubmitted) {
       const timer = setTimeout(() => {
@@ -64,8 +76,16 @@ export default function Main({
     }
   }, [isSubmitted, handleReset]);
 
+
+  // Handlers for form inputs
+  // These handlers update the state and validate the input fields
+  // They also set error states based on the input validation
+  // The useCallback hook is used to memoize the functions to prevent unnecessary re-renders
+  // This improves performance by avoiding re-creation of functions on every render.
+
+
   const handleCardHolderChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = event.target.value;
     setCardHolder(value);
@@ -77,10 +97,17 @@ export default function Main({
     }
   };
 
+
+  // The handleCardNumberChange formats the card number input
+  // It removes spaces and non-numeric characters, then formats the number with spaces every 4 digits
+  // It also validates the length of the card number and sets error states accordingly.
+
   const handleCardNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const value = event.target.value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+    const value = event.target.value
+      .replace(/\s+/g, "")
+      .replace(/[^0-9]/gi, "");
 
     // Add spaces every 4 digits
     const formattedValue = value.match(/.{1,4}/g)?.join(" ") || value;
@@ -98,8 +125,13 @@ export default function Main({
     }
   };
 
+
+  // The handleCardMonthChange and handleCardYearChange functions validate the month and year inputs
+  // They ensure that the month is between 01 and 12 and that the year is two digits long
+  // They also set error states based on the input validation.
+
   const handleCardMonthChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = event.target.value.replace(/[^0-9]/g, "");
     if (value.length <= 2) {
@@ -114,6 +146,12 @@ export default function Main({
     }
   };
 
+
+  // The handleCardYearChange function validates the year input
+  // It ensures that the year is two digits long and sets error states accordingly.
+  // It also uses a regular expression to remove any non-numeric characters from the input.
+  // This ensures that only valid numeric input is accepted for the year field.
+
   const handleCardYearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/[^0-9]/g, "");
     if (value.length <= 2) {
@@ -126,6 +164,13 @@ export default function Main({
       }
     }
   };
+
+
+
+  // The handleCardCvcChange function validates the CVC input
+  // It ensures that the CVC is three digits long and sets error states accordingly.
+  // It also uses a regular expression to remove any non-numeric characters from the input.
+  // This ensures that only valid numeric input is accepted for the CVC field.
 
   const handleCardCvcChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/[^0-9]/g, "");
@@ -140,6 +185,16 @@ export default function Main({
     }
   };
 
+
+  // The handleAlphaInput function restricts input to alphabetic characters and spaces
+  // It prevents any non-alphabetic characters from being entered into the input field.
+  // The handleNumericInput function restricts input to numeric characters
+  // It prevents any non-numeric characters from being entered into the input field.
+  // These functions are used to ensure that the input fields only accept valid characters.
+  // They are used in the onKeyDown event of the input fields to prevent invalid input
+  // and enhance the user experience by guiding the user to enter valid data.
+  // The functions check the pressed key and prevent the default action if it is not a valid character.
+
   const handleAlphaInput = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const char = event.key;
     if (
@@ -151,6 +206,11 @@ export default function Main({
       event.preventDefault();
     }
   };
+
+
+  // The handleNumericInput function restricts input to numeric characters
+  // It prevents any non-numeric characters from being entered into the input field.
+  // This function is used to ensure that the input fields only accept valid numeric characters.  
 
   const handleNumericInput = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const char = event.key;
@@ -164,7 +224,15 @@ export default function Main({
     }
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+// The handleSubmit function handles the form submission
+// It validates all fields, sets error states, and simulates an API call delay
+// If there are no errors, it sets the isSubmitting state to true and simulates a successful submission
+// After submission, it sets the isSubmitted state to true, which triggers a thank you message
+// The function also uses the useCallback hook to memoize the function, preventing unnecessary re-renders
+// This improves performance by avoiding re-creation of the function on every render.
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     // Validate all fields
@@ -183,14 +251,18 @@ export default function Main({
     const hasErrors = Object.values(newErrors).some((error) => error);
 
     if (!hasErrors) {
+      setIsSubmitting(true);
+
+      // Simulate API call delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      setIsSubmitting(false);
       setIsSubmitted(true);
     }
   };
 
   useHead({
-    title: isSubmitted
-      ? "Card Added Successfully"
-      : "Enter Your Card Details",
+    title: isSubmitted ? "Card Added Successfully" : "Enter Your Card Details",
     meta: [
       {
         name: "description",
@@ -373,14 +445,19 @@ export default function Main({
             </div>
           </div>
 
-          <button
-            className="btn"
-            id="submit-btn"
-            type="submit"
-            aria-label="Confirm"
-          >
-            Confirm
-          </button>
+          {isSubmitting ? (
+            <ButtonSkeleton />
+          ) : (
+            <button
+              className="btn"
+              id="submit-btn"
+              type="submit"
+              aria-label="Confirm"
+              disabled={isSubmitting}
+            >
+              Confirm
+            </button>
+          )}
         </form>
       </div>
     </main>
